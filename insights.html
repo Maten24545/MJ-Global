@@ -73,7 +73,7 @@ h1,h2,h3,p{margin-top:0}
 .image-caption span{font-size:9px;letter-spacing:2px;color:var(--gold2)}
 .image-caption strong{font:500 27px/1.2 var(--serif)}
 .floating-note{position:absolute;left:-10px;bottom:53px;background:#f4f0e8;color:var(--navy);padding:17px 20px;display:flex;align-items:center;gap:14px;box-shadow:0 15px 35px #0003;font-size:10px;line-height:1.6}
-.note-icon{font-size:24px;color:#aa8b54}
+.note-icon{display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#aa8b54}
 .floating-note b{font-weight:700}
 .hero-orbit{position:absolute;right:-32px;top:-5px;width:105px;height:105px;border:1px solid rgba(196,168,115,.55);border-radius:50%}
 .hero-bottom{position:absolute;bottom:22px;left:7.2%;right:7.2%;display:flex;align-items:center;gap:12px;font-size:8px;letter-spacing:2px;color:#8997a5}
@@ -121,7 +121,7 @@ h1,h2,h3,p{margin-top:0}
 .service-card:hover{background:#f2eee5}
 .service-card.featured{background:#f0ece3}
 .service-top{display:flex;justify-content:space-between;color:#a68a58;font-size:10px;letter-spacing:1px}
-.service-icon{font-size:21px}
+.service-icon{line-height:1;display:flex;align-items:center}
 .service-card h3{font:500 27px/1.25 var(--serif);color:var(--navy);margin:34px 0 13px}
 .service-card>p{font-size:12px;color:#727a82;max-width:430px;line-height:1.8}
 .service-card ul{list-style:none;padding:0;margin:8px 0 25px}
@@ -286,6 +286,7 @@ h1,h2,h3,p{margin-top:0}
 .insight-card{border:1px solid var(--line);overflow:hidden;transition:box-shadow .25s}
 .insight-card:hover{box-shadow:0 8px 32px rgba(16,29,49,.1)}
 .insight-thumb{height:185px;display:flex;align-items:center;justify-content:center;font-size:2.8rem}
+.insight-thumb svg{opacity:.9}
 .insight-thumb-navy{background:var(--navy2)}
 .insight-thumb-ivory{background:var(--ivory)}
 .insight-thumb-paper{background:#e8e3d8}
@@ -402,9 +403,19 @@ h1,h2,h3,p{margin-top:0}
   .contact-form-panel{padding:48px 7%}
   .two-up{grid-template-columns:1fr}
 }
+/* ── Scroll-reveal & transitions ── */
+.reveal-ready{opacity:0;transform:translateY(22px);transition:opacity 0.7s cubic-bezier(0.4,0,0.2,1),transform 0.7s cubic-bezier(0.4,0,0.2,1)}
+.reveal-ready.is-visible{opacity:1;transform:translateY(0)}
+.site-header{transition:box-shadow .3s}
+.site-header.scrolled{box-shadow:0 4px 24px rgba(16,29,49,.10)}
+.nav-active:not(.nav-cta){color:#a88b59!important;position:relative}
+.nav-active:not(.nav-cta):after{content:"";position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--gold)}
+#page-overlay{will-change:opacity}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*:before,*:after{transition:none!important}
+  .reveal-ready{opacity:1!important;transform:none!important}
 }
 
 </style>
@@ -414,7 +425,7 @@ h1,h2,h3,p{margin-top:0}
 <header class="site-header">
   <a href="index.html" class="brand"><span class="brand-mark">MJ<span>.</span></span><span class="brand-name">MJ Global Career Strategy<small>Building Careers. Strengthening Organisations.</small></span></a>
   <nav class="main-nav" aria-label="Main navigation">
-    <a href="about.html">About</a><a href="organisations.html">Services</a><a href="academy.html">Academy</a><a href="insights.html">Insights</a>
+    <a href="about.html">About</a><a href="organisations.html">Services</a><a href="academy.html">Academy</a><a href="templates.html">Templates</a><a href="insights.html">Insights</a>
     <a href="contact.html" class="nav-cta">Let's talk <span>↗</span></a>
   </nav>
   <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -440,7 +451,7 @@ h1,h2,h3,p{margin-top:0}
 
   <div class="insight-grid" role="list">
     <article class="insight-card fade-up" role="listitem">
-      <div class="insight-thumb insight-thumb-navy" aria-hidden="true">📊</div>
+      <div class="insight-thumb insight-thumb-navy" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#D9BD87" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
       <div class="insight-body">
         <p class="insight-cat">RECRUITER PERSPECTIVES</p>
         <h3>What recruiters actually look for when reviewing a CV</h3>
@@ -449,7 +460,7 @@ h1,h2,h3,p{margin-top:0}
       </div>
     </article>
     <article class="insight-card fade-up" role="listitem">
-      <div class="insight-thumb insight-thumb-ivory" aria-hidden="true">🔗</div>
+      <div class="insight-thumb insight-thumb-ivory" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#192B43" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
       <div class="insight-body">
         <p class="insight-cat">PROFESSIONAL BRANDING</p>
         <h3>LinkedIn: why your profile matters more than your CV in some searches</h3>
@@ -458,7 +469,7 @@ h1,h2,h3,p{margin-top:0}
       </div>
     </article>
     <article class="insight-card fade-up" role="listitem">
-      <div class="insight-thumb insight-thumb-navy" aria-hidden="true">🏢</div>
+      <div class="insight-thumb insight-thumb-navy" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#D9BD87" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
       <div class="insight-body">
         <p class="insight-cat">HR INSIGHTS</p>
         <h3>Why small businesses benefit from structured HR processes earlier than they expect</h3>
@@ -467,7 +478,7 @@ h1,h2,h3,p{margin-top:0}
       </div>
     </article>
     <article class="insight-card fade-up" role="listitem">
-      <div class="insight-thumb insight-thumb-paper" aria-hidden="true">🎤</div>
+      <div class="insight-thumb insight-thumb-paper" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#192B43" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
       <div class="insight-body">
         <p class="insight-cat">CAREER GUIDANCE</p>
         <h3>How to prepare for a competency-based interview</h3>
@@ -476,7 +487,7 @@ h1,h2,h3,p{margin-top:0}
       </div>
     </article>
     <article class="insight-card fade-up" role="listitem">
-      <div class="insight-thumb insight-thumb-ivory" aria-hidden="true">💰</div>
+      <div class="insight-thumb insight-thumb-ivory" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#192B43" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
       <div class="insight-body">
         <p class="insight-cat">CAREER GUIDANCE</p>
         <h3>Salary negotiation: approaching the conversation without underselling yourself</h3>
@@ -485,7 +496,7 @@ h1,h2,h3,p{margin-top:0}
       </div>
     </article>
     <article class="insight-card fade-up" role="listitem">
-      <div class="insight-thumb insight-thumb-navy" aria-hidden="true">🔄</div>
+      <div class="insight-thumb insight-thumb-navy" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#D9BD87" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
       <div class="insight-body">
         <p class="insight-cat">CAREER GUIDANCE</p>
         <h3>Returning to work after a career gap: addressing it in your CV and interview</h3>
@@ -494,7 +505,7 @@ h1,h2,h3,p{margin-top:0}
       </div>
     </article>
     <article class="insight-card fade-up" role="listitem">
-      <div class="insight-thumb insight-thumb-paper" aria-hidden="true">🤖</div>
+      <div class="insight-thumb insight-thumb-paper" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#192B43" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
       <div class="insight-body">
         <p class="insight-cat">HR &amp; TECHNOLOGY</p>
         <h3>AI in recruitment: what it changes and what it does not</h3>
@@ -503,7 +514,7 @@ h1,h2,h3,p{margin-top:0}
       </div>
     </article>
     <article class="insight-card fade-up" role="listitem">
-      <div class="insight-thumb insight-thumb-ivory" aria-hidden="true">📈</div>
+      <div class="insight-thumb insight-thumb-ivory" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#192B43" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
       <div class="insight-body">
         <p class="insight-cat">PROFESSIONAL DEVELOPMENT</p>
         <h3>Making a case for promotion: building your evidence before the conversation</h3>
@@ -512,7 +523,7 @@ h1,h2,h3,p{margin-top:0}
       </div>
     </article>
     <article class="insight-card fade-up" role="listitem">
-      <div class="insight-thumb insight-thumb-navy" aria-hidden="true">🎓</div>
+      <div class="insight-thumb insight-thumb-navy" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#D9BD87" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
       <div class="insight-body">
         <p class="insight-cat">GRADUATE GUIDANCE</p>
         <h3>What graduates often get wrong about the job search — and how to approach it differently</h3>

@@ -73,7 +73,7 @@ h1,h2,h3,p{margin-top:0}
 .image-caption span{font-size:9px;letter-spacing:2px;color:var(--gold2)}
 .image-caption strong{font:500 27px/1.2 var(--serif)}
 .floating-note{position:absolute;left:-10px;bottom:53px;background:#f4f0e8;color:var(--navy);padding:17px 20px;display:flex;align-items:center;gap:14px;box-shadow:0 15px 35px #0003;font-size:10px;line-height:1.6}
-.note-icon{font-size:24px;color:#aa8b54}
+.note-icon{display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#aa8b54}
 .floating-note b{font-weight:700}
 .hero-orbit{position:absolute;right:-32px;top:-5px;width:105px;height:105px;border:1px solid rgba(196,168,115,.55);border-radius:50%}
 .hero-bottom{position:absolute;bottom:22px;left:7.2%;right:7.2%;display:flex;align-items:center;gap:12px;font-size:8px;letter-spacing:2px;color:#8997a5}
@@ -121,7 +121,7 @@ h1,h2,h3,p{margin-top:0}
 .service-card:hover{background:#f2eee5}
 .service-card.featured{background:#f0ece3}
 .service-top{display:flex;justify-content:space-between;color:#a68a58;font-size:10px;letter-spacing:1px}
-.service-icon{font-size:21px}
+.service-icon{line-height:1;display:flex;align-items:center}
 .service-card h3{font:500 27px/1.25 var(--serif);color:var(--navy);margin:34px 0 13px}
 .service-card>p{font-size:12px;color:#727a82;max-width:430px;line-height:1.8}
 .service-card ul{list-style:none;padding:0;margin:8px 0 25px}
@@ -286,6 +286,7 @@ h1,h2,h3,p{margin-top:0}
 .insight-card{border:1px solid var(--line);overflow:hidden;transition:box-shadow .25s}
 .insight-card:hover{box-shadow:0 8px 32px rgba(16,29,49,.1)}
 .insight-thumb{height:185px;display:flex;align-items:center;justify-content:center;font-size:2.8rem}
+.insight-thumb svg{opacity:.9}
 .insight-thumb-navy{background:var(--navy2)}
 .insight-thumb-ivory{background:var(--ivory)}
 .insight-thumb-paper{background:#e8e3d8}
@@ -402,9 +403,19 @@ h1,h2,h3,p{margin-top:0}
   .contact-form-panel{padding:48px 7%}
   .two-up{grid-template-columns:1fr}
 }
+/* ── Scroll-reveal & transitions ── */
+.reveal-ready{opacity:0;transform:translateY(22px);transition:opacity 0.7s cubic-bezier(0.4,0,0.2,1),transform 0.7s cubic-bezier(0.4,0,0.2,1)}
+.reveal-ready.is-visible{opacity:1;transform:translateY(0)}
+.site-header{transition:box-shadow .3s}
+.site-header.scrolled{box-shadow:0 4px 24px rgba(16,29,49,.10)}
+.nav-active:not(.nav-cta){color:#a88b59!important;position:relative}
+.nav-active:not(.nav-cta):after{content:"";position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--gold)}
+#page-overlay{will-change:opacity}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*:before,*:after{transition:none!important}
+  .reveal-ready{opacity:1!important;transform:none!important}
 }
 
 </style>
@@ -414,7 +425,7 @@ h1,h2,h3,p{margin-top:0}
 <header class="site-header">
   <a href="index.html" class="brand"><span class="brand-mark">MJ<span>.</span></span><span class="brand-name">MJ Global Career Strategy<small>Building Careers. Strengthening Organisations.</small></span></a>
   <nav class="main-nav" aria-label="Main navigation">
-    <a href="about.html">About</a><a href="organisations.html">Services</a><a href="academy.html">Academy</a><a href="insights.html">Insights</a>
+    <a href="about.html">About</a><a href="organisations.html">Services</a><a href="academy.html">Academy</a><a href="templates.html">Templates</a><a href="insights.html">Insights</a>
     <a href="contact.html" class="nav-cta">Let's talk <span>↗</span></a>
   </nav>
   <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -452,15 +463,15 @@ h1,h2,h3,p{margin-top:0}
       <div>
         <div class="contact-channels" role="list">
           <div class="contact-channel" role="listitem">
-            <div class="channel-icon" aria-hidden="true">✉️</div>
+            <div class="channel-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D9BD87" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
             <div><span style="font-size:8px;letter-spacing:1.5px;color:rgba(255,255,255,.35);display:block;margin-bottom:4px;">EMAIL</span><a href="mailto:mjglobalcareers@gmail.com">mjglobalcareers@gmail.com</a></div>
           </div>
           <div class="contact-channel" role="listitem">
-            <div class="channel-icon" aria-hidden="true">🌐</div>
+            <div class="channel-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D9BD87" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
             <div><span style="font-size:8px;letter-spacing:1.5px;color:rgba(255,255,255,.35);display:block;margin-bottom:4px;">WEBSITE</span><a href="https://mjglobalcareers.com" target="_blank" rel="noopener noreferrer">mjglobalcareers.com</a></div>
           </div>
           <div class="contact-channel" role="listitem">
-            <div class="channel-icon" aria-hidden="true">📍</div>
+            <div class="channel-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D9BD87" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
             <div><span style="font-size:8px;letter-spacing:1.5px;color:rgba(255,255,255,.35);display:block;margin-bottom:4px;">LOCATION</span><span>Nairobi, Kenya · Remote clients welcome</span></div>
           </div>
         </div>
@@ -551,7 +562,7 @@ h1,h2,h3,p{margin-top:0}
   <div class="service-list" style="grid-template-columns:repeat(3,1fr);" role="list">
     <a href="organisations.html" style="display:contents;" role="listitem">
       <div class="service-card" style="cursor:pointer;">
-        <div class="service-top"><span>01</span><span class="service-icon">🏢</span></div>
+        <div class="service-top"><span>01</span><span class="service-icon" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#192B43" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span></div>
         <h3>For Organisations</h3>
         <p>Recruitment, talent acquisition and HR consultancy for SMEs and growing businesses.</p>
         <span class="card-link" style="display:inline-flex;margin-top:auto;">Explore services <span>→</span></span>
@@ -559,7 +570,7 @@ h1,h2,h3,p{margin-top:0}
     </a>
     <a href="individuals.html" style="display:contents;" role="listitem">
       <div class="service-card" style="cursor:pointer;">
-        <div class="service-top"><span>02</span><span class="service-icon">👤</span></div>
+        <div class="service-top"><span>02</span><span class="service-icon" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#192B43" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span></div>
         <h3>For Individuals</h3>
         <p>Career coaching, CV and LinkedIn services, interview preparation and professional branding.</p>
         <span class="card-link" style="display:inline-flex;margin-top:auto;">Explore services <span>→</span></span>
@@ -567,7 +578,7 @@ h1,h2,h3,p{margin-top:0}
     </a>
     <a href="academy.html" style="display:contents;" role="listitem">
       <div class="service-card" style="cursor:pointer;">
-        <div class="service-top"><span>03</span><span class="service-icon">🎓</span></div>
+        <div class="service-top"><span>03</span><span class="service-icon" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#192B43" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span></div>
         <h3>Academy &amp; Resources</h3>
         <p>Graduate Academy, career development programmes and practical digital resources.</p>
         <span class="card-link" style="display:inline-flex;margin-top:auto;">Explore Academy <span>→</span></span>

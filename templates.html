@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Templates &amp; Resources — MJ Global Career Strategy</title>
+<meta name="description" content="Download free and premium career templates from MJ Global — ATS-ready CVs, cover letters, LinkedIn guides, job search planners and interview preparation resources.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{
+  --navy:#101d31;
+  --navy2:#172941;
+  --ivory:#f5f2eb;
+  --paper:#fbfaf6;
+  --gold:#c4a873;
+  --gold2:#dfc99e;
+  --ink:#1b2635;
+  --muted:#737b83;
+  --line:#dedbd3;
+  --serif:"Playfair Display",Georgia,serif;
+  --sans:"DM Sans",Arial,sans-serif
+}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+
+/* ── Announcement bar ── */
+.announcement{height:31px;background:#0b1728;color:#d5c29d;text-align:center;font-size:9px;letter-spacing:2px;display:flex;align-items:center;justify-content:center;gap:9px}
+.gold-dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+
+/* ── Header ── */
+.site-header{height:86px;padding:0 7.2%;display:flex;align-items:center;justify-content:space-between;background:var(--paper);position:sticky;top:0;z-index:200;border-bottom:1px solid rgba(16,29,49,.08);transition:box-shadow .3s}
+.site-header.scrolled{box-shadow:0 4px 24px rgba(16,29,49,.10)}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{font:600 36px var(--serif);letter-spacing:-4px;color:var(--navy)}
+.brand-mark span{color:var(--gold)}
+.brand-name{font-size:12px;font-weight:700;letter-spacing:2px;line-height:1.35;color:var(--navy)}
+.brand-name small{display:block;font-size:8px;letter-spacing:3px;font-weight:500;color:#8b7958}
+.main-nav{display:flex;align-items:center;gap:30px;font-size:12px;font-weight:600;color:#3d4856}
+.main-nav a:not(.nav-cta):hover{color:#a88b59}
+.nav-cta{border:1px solid var(--gold);padding:11px 18px;color:var(--navy)}
+.nav-cta span{color:#a88b59;margin-left:10px}
+.nav-active:not(.nav-cta){color:#a88b59!important;position:relative}
+.nav-active:not(.nav-cta):after{content:"";position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--gold)}
+.menu-toggle{display:none}
+
+/* ── Page hero ── */
+.page-hero{background:var(--navy);color:#fff;padding:90px 7.2% 68px;position:relative;overflow:hidden}
+.page-hero:before{content:"";position:absolute;width:560px;height:560px;border:1px solid rgba(196,168,115,.1);border-radius:50%;right:-100px;top:-280px;box-shadow:0 0 0 60px rgba(196,168,115,.02)}
+.page-hero-inner{position:relative;z-index:2;max-width:720px}
+.eyebrow{font-size:9px;letter-spacing:2.5px;font-weight:700;color:#9d8354}
+.eyebrow.light{color:#d8c49e;display:flex;align-items:center;gap:10px}
+.eyebrow.light span{width:26px;height:1px;background:var(--gold)}
+.page-hero .eyebrow.light{margin-bottom:20px}
+h1,h2,h3,p{margin-top:0}
+.page-hero h1{font:500 clamp(40px,5vw,66px)/1.12 var(--serif);letter-spacing:-2px;margin:0 0 20px}
+.page-hero h1 em{font-weight:400;color:var(--gold2)}
+.page-hero-inner>p{font-size:13px;color:#bcc4cc;max-width:520px;line-height:1.9;margin:0}
+
+/* ── Filter bar ── */
+.filter-bar{background:var(--ivory);border-bottom:1px solid var(--line);padding:0 7.2%;display:flex;align-items:center;gap:0;position:sticky;top:86px;z-index:100}
+.filter-btn{font-size:11px;font-weight:700;letter-spacing:.5px;color:#6a737c;padding:20px 24px;border:0;background:none;cursor:pointer;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.filter-btn:hover{color:var(--navy)}
+.filter-btn.active{color:var(--navy);border-bottom-color:var(--gold)}
+.filter-count{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:var(--line);border-radius:50%;font-size:9px;font-weight:700;color:#6a737c;margin-left:7px}
+.filter-btn.active .filter-count{background:var(--gold);color:#111d2d}
+
+/* ── Templates grid ── */
+.templates-section{padding:80px 7.2% 100px;background:var(--paper)}
+.templates-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.tpl-card{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .28s,box-shadow .28s;position:relative}
+.tpl-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(16,29,49,.10)}
+.tpl-card[data-tier="hidden"]{display:none}
+
+/* Badge */
+.tpl-badge{position:absolute;top:16px;left:16px;font-size:8px;font-weight:700;letter-spacing:1.5px;padding:5px 10px;z-index:1}
+.badge-free{background:#e8f4ec;color:#3a7a52;border:1px solid #b8ddc5}
+.badge-premium{background:#f4f0e3;color:#8a6c2a;border:1px solid #d9bd87}
+
+/* Visual panel */
+.tpl-visual{height:200px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
+.tpl-visual-cv{background:linear-gradient(145deg,#e8e3d8,#d9d2c3)}
+.tpl-visual-plan{background:linear-gradient(145deg,#ddd5c4,#cfc4b0)}
+.tpl-visual-interview{background:linear-gradient(145deg,#172941,#0d1e35)}
+.tpl-visual-linkedin{background:linear-gradient(145deg,#e3e8f0,#d4dbe8)}
+.tpl-visual-salary{background:linear-gradient(145deg,#e6e1d6,#dad3c5)}
+.tpl-visual-cover{background:linear-gradient(145deg,#eae5db,#ddd6ca)}
+.tpl-visual-exec{background:linear-gradient(145deg,#1a2e45,#0f1e31)}
+.tpl-visual-tracker{background:linear-gradient(145deg,#dce0dc,#cdd1cc)}
+
+.tpl-doc{width:88px;height:118px;background:#fff;border:1px solid rgba(0,0,0,.08);box-shadow:6px 8px 24px rgba(0,0,0,.12);display:flex;flex-direction:column;padding:12px 10px;gap:5px;position:relative;z-index:1}
+.tpl-doc-line{height:3px;border-radius:1px;background:rgba(16,29,49,.12)}
+.tpl-doc-line.gold{background:var(--gold);width:60%}
+.tpl-doc-line.short{width:70%}
+.tpl-doc-line.shorter{width:50%}
+.tpl-doc-shadow{position:absolute;width:88px;height:118px;background:#f0ece3;border:1px solid rgba(0,0,0,.06);transform:rotate(5deg) translate(8px,6px);z-index:0}
+
+.tpl-monogram{font:500 52px/1 var(--serif);color:rgba(255,255,255,.18);letter-spacing:-3px;position:absolute}
+.tpl-monogram-dark{color:rgba(16,29,49,.12)}
+
+.tpl-label{position:absolute;right:14px;bottom:14px;font-size:8px;letter-spacing:2px;font-weight:700;color:rgba(16,29,49,.35)}
+.tpl-label-light{color:rgba(255,255,255,.35)}
+
+/* Card body */
+.tpl-body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+.tpl-category{font-size:8px;letter-spacing:1.5px;font-weight:700;color:#a18554;margin-bottom:8px}
+.tpl-card h3{font:500 20px/1.3 var(--serif);color:var(--navy);margin:0 0 10px}
+.tpl-card p{font-size:11px;color:#717980;line-height:1.75;margin:0 0 20px;flex:1}
+.tpl-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.tpl-format{font-size:9px;color:#9ba3ab;display:flex;align-items:center;gap:5px}
+.tpl-price{font:600 15px var(--serif);color:var(--navy)}
+.tpl-price.free{color:#3a7a52;font-size:12px;letter-spacing:.5px}
+.tpl-actions{display:flex;gap:10px;margin-top:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:11px 18px;font-size:11px;font-weight:700;letter-spacing:.3px;border:0;cursor:pointer;transition:.22s;white-space:nowrap}
+.btn-gold{background:var(--gold);color:#111d2d;flex:1}
+.btn-gold:hover{background:#ddc697;transform:translateY(-1px)}
+.btn-outline{background:transparent;border:1px solid var(--line);color:#5c6670;padding:11px 14px}
+.btn-outline:hover{border-color:var(--navy);color:var(--navy)}
+
+/* ── Empty state ── */
+.templates-empty{display:none;text-align:center;padding:80px 0;grid-column:1/-1}
+.templates-empty svg{margin-bottom:16px;opacity:.3}
+.templates-empty p{font-size:13px;color:#9ba3ab}
+
+/* ── Upload CTA (admin note) ── */
+.upload-cta{background:var(--navy);color:white;padding:72px 7.2%;display:grid;grid-template-columns:1fr auto;align-items:center;gap:60px}
+.upload-cta h2{font:500 clamp(28px,3vw,38px)/1.2 var(--serif);margin:0 0 10px}
+.upload-cta h2 em{color:var(--gold2)}
+.upload-cta p{font-size:12px;color:#b7c0c9;margin:0;max-width:480px}
+.btn-gold-outline{display:inline-flex;align-items:center;justify-content:center;gap:14px;padding:15px 24px;font-size:11px;font-weight:700;letter-spacing:.3px;border:1px solid var(--gold);color:var(--gold2);background:transparent;cursor:pointer;transition:.22s;white-space:nowrap}
+.btn-gold-outline:hover{background:var(--gold);color:#111d2d}
+
+/* ── MODAL ── */
+#tplModal{position:fixed;inset:0;z-index:9000;display:none;align-items:center;justify-content:center;padding:20px}
+#tplModal.open{display:flex}
+.modal-backdrop{position:absolute;inset:0;background:rgba(10,18,30,.7);backdrop-filter:blur(4px)}
+.modal-box{position:relative;z-index:1;background:var(--paper);max-width:620px;width:100%;max-height:90vh;overflow-y:auto;animation:modalIn .32s cubic-bezier(0.4,0,0.2,1) both}
+@keyframes modalIn{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+.modal-close{position:absolute;top:18px;right:18px;width:34px;height:34px;border:1px solid var(--line);background:var(--paper);cursor:pointer;display:flex;align-items:center;justify-content:center;color:#6a737c;font-size:18px;line-height:1;z-index:2;transition:.2s}
+.modal-close:hover{background:var(--ivory);color:var(--navy)}
+.modal-visual{height:200px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;flex-shrink:0}
+.modal-body{padding:32px 36px 36px}
+.modal-tier{font-size:8px;letter-spacing:1.5px;font-weight:700;margin-bottom:10px}
+.modal-tier.free{color:#3a7a52}
+.modal-tier.premium{color:#8a6c2a}
+.modal-box h2{font:500 28px/1.2 var(--serif);color:var(--navy);margin:0 0 14px}
+.modal-box p{font-size:12px;color:#66707a;line-height:1.9;margin:0 0 20px}
+.modal-details{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px}
+.modal-detail{background:var(--ivory);padding:14px 16px;border:1px solid var(--line)}
+.modal-detail label{display:block;font-size:8px;letter-spacing:1.5px;color:#9ba3ab;margin-bottom:5px}
+.modal-detail span{font-size:12px;font-weight:600;color:var(--navy)}
+.modal-price{font:500 32px/1 var(--serif);color:var(--navy);margin-bottom:4px}
+.modal-price.free{color:#3a7a52;font-size:22px}
+.modal-price-note{font-size:10px;color:#9ba3ab;margin-bottom:28px}
+.modal-actions{display:flex;gap:12px;flex-wrap:wrap}
+.modal-actions .btn{padding:14px 22px;font-size:11px}
+.modal-note{font-size:9px;color:#9ba3ab;margin-top:14px;line-height:1.6}
+
+/* ── Footer ── */
+.footer{background:#0b1728;color:#c1c8d0;padding:35px 7.2% 20px}
+.footer-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:35px;border-bottom:1px solid #29374a}
+.brand-footer .brand-mark,.brand-footer .brand-name{color:#f4f0e8}
+.brand-footer .brand-name small{color:#bda477}
+.footer-top>p{font:italic 18px/1.4 var(--serif);color:#e0d2b5;margin:0}
+.back-top{font-size:8px;letter-spacing:1.5px;color:#d3bd91;cursor:pointer}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:20px;font-size:8px;color:#7f8b99}
+.footer-bottom div{display:flex;gap:22px}
+.footer-bottom>span:last-child{letter-spacing:1.3px;color:#b59a68}
+.footer a:hover{color:#a88b59}
+
+/* ── Scroll-reveal ── */
+.reveal-ready{opacity:0;transform:translateY(22px);transition:opacity 0.7s cubic-bezier(0.4,0,0.2,1),transform 0.7s cubic-bezier(0.4,0,0.2,1)}
+.reveal-ready.is-visible{opacity:1;transform:translateY(0)}
+#page-overlay{will-change:opacity}
+
+/* ── Responsive ── */
+@media(max-width:900px){
+  .site-header{padding:0 5%}
+  .filter-bar{padding:0 5%}
+  .templates-section{padding:60px 5% 80px}
+  .templates-grid{grid-template-columns:1fr 1fr;gap:20px}
+  .upload-cta{grid-template-columns:1fr;gap:28px}
+}
+@media(max-width:680px){
+  .site-header{height:72px}
+  .brand-mark{font-size:31px}
+  .brand-name{font-size:10px}
+  .menu-toggle{display:flex;flex-direction:column;gap:6px;border:0;background:none;padding:10px;z-index:22}
+  .menu-toggle span{width:24px;height:1px;background:var(--navy);display:block}
+  .main-nav{display:none;position:absolute;top:72px;left:0;right:0;background:var(--paper);padding:22px 7% 28px;flex-direction:column;align-items:stretch;gap:0;border-bottom:1px solid var(--line);box-shadow:0 15px 20px #101d3112}
+  .main-nav.open{display:flex}
+  .main-nav a{padding:13px 0;border-bottom:1px solid #ebe7df}
+  .main-nav .nav-cta{margin-top:12px;text-align:center;padding:12px}
+  .filter-bar{top:72px;padding:0 7%;overflow-x:auto;gap:0;flex-wrap:nowrap}
+  .filter-btn{padding:16px 16px;font-size:10px;white-space:nowrap}
+  .templates-section{padding:50px 7% 70px}
+  .templates-grid{grid-template-columns:1fr;gap:20px}
+  .modal-box{max-width:100%}
+  .modal-body{padding:24px 22px 28px}
+  .modal-details{grid-template-columns:1fr}
+  .upload-cta{padding:52px 7%}
+  .footer{padding:30px 7% 18px}
+  .footer-top{align-items:flex-start;gap:20px;flex-wrap:wrap}
+  .footer-top>p{font-size:15px}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:13px}
+  .footer-bottom div{order:-1}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{transition:none!important;animation:none!important}
+  .reveal-ready{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="announcement"><span class="gold-dot"></span>Free &amp; Premium Career Templates &nbsp;·&nbsp; CVs · Cover Letters · LinkedIn · Interview Guides<span class="gold-dot"></span></div>
+
+<header class="site-header">
+  <a href="index.html" class="brand"><span class="brand-mark">MJ<span>.</span></span><span class="brand-name">MJ Global Career Strategy<small>Building Careers. Strengthening Organisations.</small></span></a>
+  <nav class="main-nav" aria-label="Main navigation">
+    <a href="about.html">About</a>
+    <a href="organisations.html">Services</a>
+    <a href="academy.html">Academy</a>
+    <a href="templates.html">Templates</a>
+    <a href="insights.html">Insights</a>
+    <a href="contact.html" class="nav-cta">Let's talk <span>↗</span></a>
+  </nav>
+  <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+
+<!-- Page Hero -->
+<section class="page-hero" aria-labelledby="tpl-h1">
+  <div class="page-hero-inner">
+    <p class="eyebrow light"><span></span>Templates &amp; Resources</p>
+    <h1 id="tpl-h1">Career tools, ready<br>when you <em>need them.</em></h1>
+    <p>Download free resources and premium career templates — professionally designed to help you present your experience clearly and move forward with confidence.</p>
+  </div>
+</section>
+
+<!-- Filter bar -->
+<div class="filter-bar" role="tablist" aria-label="Filter templates">
+  <button class="filter-btn active" role="tab" aria-selected="true"  data-filter="all">All <span class="filter-count" id="count-all">0</span></button>
+  <button class="filter-btn"        role="tab" aria-selected="false" data-filter="free">Free <span class="filter-count" id="count-free">0</span></button>
+  <button class="filter-btn"        role="tab" aria-selected="false" data-filter="premium">Premium <span class="filter-count" id="count-premium">0</span></button>
+</div>
+
+<!-- Templates grid -->
+<section class="templates-section" aria-labelledby="tpl-grid-heading">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:16px;">
+    <div>
+      <div style="font-size:9px;letter-spacing:2.5px;font-weight:700;color:#9d8354;margin-bottom:14px;">CAREER RESOURCES</div>
+      <h2 id="tpl-grid-heading" style="font:500 clamp(30px,3.5vw,44px)/1.2 var(--serif);letter-spacing:-1px;color:var(--navy);margin:0;">Professional templates<br><em>built for real results.</em></h2>
+    </div>
+    <p style="max-width:300px;font-size:12px;color:#717982;line-height:1.9;margin:0;">Each template is designed around how recruiters and hiring managers actually read applications.</p>
+  </div>
+
+  <!-- Template cards — rendered by JS from TEMPLATES data below -->
+  <div class="templates-grid" id="templatesGrid" role="list" aria-live="polite">
+    <div class="templates-empty" id="templatesEmpty">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#9ba3ab" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <p>No templates in this category yet.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Admin CTA -->
+<div class="upload-cta" aria-labelledby="upload-h2">
+  <div>
+    <h2 id="upload-h2">Need a custom<br><em>career document?</em></h2>
+    <p>Can't find exactly what you need? Our team builds bespoke CVs, cover letters and LinkedIn profiles tailored to your specific experience, industry and target roles.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;">
+    <a href="individuals.html#branding" class="btn-gold-outline">Explore bespoke services <span>↗</span></a>
+    <a href="contact.html" style="font-size:10px;color:rgba(196,168,115,.65);display:flex;align-items:center;gap:8px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Get in touch directly
+    </a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="brand brand-footer"><span class="brand-mark">MJ<span>.</span></span><span class="brand-name">MJ Global Career Strategy<small>Building Careers. Strengthening Organisations.</small></span></div>
+    <p>Building Careers.<br>Strengthening Organisations.</p>
+    <span class="back-top" data-back-top>BACK TO TOP ↑</span>
+  </div>
+  <div class="footer-bottom">
+    <div>
+      <a href="about.html">About</a>
+      <a href="templates.html">Templates</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <span>© <script>document.write(new Date().getFullYear())</script> MJ Global Career Strategy. All rights reserved.</span>
+    <span>QUALITY TODAY. SUSTAINABILITY TOMORROW.</span>
+  </div>
+</footer>
+
+<!-- ── TEMPLATE PREVIEW MODAL ── -->
+<div id="tplModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Close preview">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-visual" id="modalVisual"></div>
+    <div class="modal-body">
+      <div class="modal-tier" id="modalTier"></div>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDesc"></p>
+      <div class="modal-details" id="modalDetails"></div>
+      <div class="modal-price" id="modalPrice"></div>
+      <div class="modal-price-note" id="modalPriceNote"></div>
+      <div class="modal-actions" id="modalActions"></div>
+      <p class="modal-note" id="modalNote"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ================================================================
+   TEMPLATES DATA
+   To add a template, copy one object and edit its fields.
+   tier:    "free" or "premium"
+   visual:  "cv" | "plan" | "interview" | "linkedin" | "salary" | "cover" | "exec" | "tracker"
+   file:    path to the downloadable file (relative to this page),
+            e.g. "templates/cv-template-classic.docx"
+            Leave blank ("") if file is not yet uploaded — shows "Coming soon"
+   price:   e.g. "KES 500" (only used for premium)
+================================================================ */
+const TEMPLATES = [
+  {
+    id: "cv-ats-classic",
+    tier: "free",
+    visual: "cv",
+    category: "CV TEMPLATE",
+    title: "ATS-Ready CV — Classic",
+    description: "A clean single-column layout structured for Applicant Tracking Systems. Sections are logically ordered and labelled to match recruiter scanning patterns.",
+    longDesc: "Designed around how recruiters and ATS systems read CVs — logical section order, keyword-friendly headings and clean formatting. Suitable for most professional fields and experience levels. Available as an editable DOCX file.",
+    format: "DOCX",
+    pages: "1–2 pages",
+    file: "",
+    price: null
+  },
+  {
+    id: "cv-ats-two-column",
+    tier: "premium",
+    visual: "cv",
+    category: "CV TEMPLATE",
+    title: "ATS-Ready CV — Two Column",
+    description: "A polished two-column layout with a navy sidebar. Balances visual impact with ATS compatibility — perfect for mid-career and senior professionals.",
+    longDesc: "A professionally designed two-column CV template with a structured sidebar for skills and contact details, and a main column for experience and achievements. Carefully built to pass most ATS parsers while making a strong visual impression when reviewed directly.",
+    format: "DOCX",
+    pages: "1–2 pages",
+    file: "",
+    price: "KES 500"
+  },
+  {
+    id: "executive-cv",
+    tier: "premium",
+    visual: "exec",
+    category: "EXECUTIVE CV",
+    title: "Executive CV Template",
+    description: "A refined executive-level template with an emphasis on leadership impact, strategic scope and senior-level positioning.",
+    longDesc: "Built for directors, heads of department and C-suite professionals. Designed to communicate scope, impact and strategic contribution from the first line. Includes an executive summary section, board/committee positions, and an achievements-first experience format.",
+    format: "DOCX",
+    pages: "2–3 pages",
+    file: "",
+    price: "KES 800"
+  },
+  {
+    id: "cover-letter",
+    tier: "free",
+    visual: "cover",
+    category: "COVER LETTER",
+    title: "Cover Letter Template",
+    description: "A structured cover letter template with guidance notes — matching paragraph order to what hiring managers typically look for.",
+    longDesc: "Three-paragraph structure with built-in guidance notes explaining what each section should achieve. Includes a formal header, opening hook, skills-to-role alignment, and a confident closing. Fully editable in DOCX format.",
+    format: "DOCX",
+    pages: "1 page",
+    file: "",
+    price: null
+  },
+  {
+    id: "linkedin-guide",
+    tier: "premium",
+    visual: "linkedin",
+    category: "LINKEDIN GUIDE",
+    title: "LinkedIn Optimisation Guide",
+    description: "A section-by-section guide to building a recruiter-ready LinkedIn profile — with examples, keyword guidance and common mistakes to avoid.",
+    longDesc: "Covers every section of a LinkedIn profile: headline, about/summary, experience, skills, recommendations and settings. Includes real examples of strong vs weak profiles, keyword strategy guidance, and a checklist to audit your current profile before applying for roles.",
+    format: "PDF",
+    pages: "14 pages",
+    file: "",
+    price: "KES 600"
+  },
+  {
+    id: "job-search-planner",
+    tier: "free",
+    visual: "plan",
+    category: "JOB SEARCH TOOL",
+    title: "Job Search Planner",
+    description: "A structured weekly planner and application tracker — keep your job search organised, consistent and goal-focused.",
+    longDesc: "Includes a weekly job search schedule, application tracking table, follow-up log, and a simple goal-setting framework. Designed to bring discipline and momentum to a job search that can otherwise feel overwhelming and directionless.",
+    format: "DOCX / PDF",
+    pages: "4 pages",
+    file: "",
+    price: null
+  },
+  {
+    id: "interview-prep",
+    tier: "premium",
+    visual: "interview",
+    category: "INTERVIEW GUIDE",
+    title: "Interview Preparation Pack",
+    description: "A complete preparation pack covering competency-based questions, the STAR framework, research templates and a pre-interview checklist.",
+    longDesc: "Comprehensive interview prep resource: explains the most common interview formats, walks through the STAR (Situation, Task, Action, Result) method with worked examples, provides a company research template, and includes a 48-hour pre-interview checklist. Used in MJ Global coaching sessions.",
+    format: "PDF",
+    pages: "18 pages",
+    file: "",
+    price: "KES 700"
+  },
+  {
+    id: "salary-guide",
+    tier: "premium",
+    visual: "salary",
+    category: "CAREER GUIDE",
+    title: "Salary Negotiation Guide",
+    description: "Know your worth and ask for it. A practical guide to preparing for and navigating salary conversations with confidence.",
+    longDesc: "Covers how to research market rates, when and how to raise salary in an interview, how to handle a counter-offer, and what to say when pushed for a number. Includes negotiation scripts, dos and don'ts, and a simple offer evaluation worksheet.",
+    format: "PDF",
+    pages: "10 pages",
+    file: "",
+    price: "KES 500"
+  },
+  {
+    id: "application-tracker",
+    tier: "free",
+    visual: "tracker",
+    category: "JOB SEARCH TOOL",
+    title: "Application Tracker Spreadsheet",
+    description: "Track every application, follow-up, interview stage and outcome in one organised spreadsheet — built for a focused job search.",
+    longDesc: "A clean, structured spreadsheet to log job applications with columns for company, role, date applied, source, contact name, follow-up date, interview stage and outcome. Includes a summary dashboard tab with application-stage counts at a glance.",
+    format: "XLSX",
+    pages: "2 tabs",
+    file: "",
+    price: null
+  }
+];
+
+/* ── Render cards ─────────────────────────────────────────── */
+const VISUAL_CLASSES = {
+  cv:        "tpl-visual-cv",
+  plan:      "tpl-visual-plan",
+  interview: "tpl-visual-interview",
+  linkedin:  "tpl-visual-linkedin",
+  salary:    "tpl-visual-salary",
+  cover:     "tpl-visual-cover",
+  exec:      "tpl-visual-exec",
+  tracker:   "tpl-visual-tracker"
+};
+
+const VISUAL_HTML = {
+  cv: `<div class="tpl-doc-shadow"></div><div class="tpl-doc"><div class="tpl-doc-line gold"></div><div class="tpl-doc-line" style="margin-top:8px"></div><div class="tpl-doc-line short"></div><div class="tpl-doc-line shorter"></div><div class="tpl-doc-line" style="margin-top:6px"></div><div class="tpl-doc-line short"></div><div class="tpl-doc-line shorter"></div></div>`,
+  exec: `<div class="tpl-doc-shadow" style="background:#0d1e35;border-color:#1a2e45;transform:rotate(5deg) translate(8px,6px)"></div><div class="tpl-doc" style="background:#172941;border-color:#1f3350;"><div class="tpl-doc-line" style="background:#D9BD87;width:60%"></div><div class="tpl-doc-line" style="margin-top:8px;background:rgba(255,255,255,.15)"></div><div class="tpl-doc-line short" style="background:rgba(255,255,255,.1)"></div><div class="tpl-doc-line shorter" style="background:rgba(255,255,255,.1)"></div></div>`,
+  plan: `<span class="tpl-monogram tpl-monogram-dark" style="font-size:38px;letter-spacing:2px;color:rgba(16,29,49,.1)">PLAN</span>`,
+  interview: `<span class="tpl-monogram" style="font-size:30px;letter-spacing:3px;color:rgba(217,189,135,.2)">PREP</span>`,
+  linkedin: `<svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="rgba(16,29,49,0.18)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>`,
+  salary: `<span class="tpl-monogram tpl-monogram-dark" style="font-size:48px;letter-spacing:0">KSh</span>`,
+  cover: `<div class="tpl-doc-shadow" style="transform:rotate(-4deg) translate(-8px,6px)"></div><div class="tpl-doc" style="transform:rotate(-2deg)"><div class="tpl-doc-line gold"></div><div class="tpl-doc-line" style="margin-top:10px"></div><div class="tpl-doc-line"></div><div class="tpl-doc-line short"></div></div>`,
+  tracker: `<svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="rgba(16,29,49,0.18)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>`
+};
+
+function buildCardHTML(t) {
+  const isFree = t.tier === "free";
+  const badgeClass = isFree ? "badge-free" : "badge-premium";
+  const badgeText  = isFree ? "FREE" : "PREMIUM";
+  const visualClass = VISUAL_CLASSES[t.visual] || "tpl-visual-cv";
+  const visualInner = VISUAL_HTML[t.visual]   || VISUAL_HTML.cv;
+  const priceDisplay = isFree
+    ? `<span class="tpl-price free">Free download</span>`
+    : `<span class="tpl-price">${t.price}</span>`;
+  const btnLabel = isFree ? "Preview &amp; Download" : "Preview &amp; Buy";
+
+  return `
+  <div class="tpl-card fade-up" data-tier="${t.tier}" data-id="${t.id}" role="listitem">
+    <span class="tpl-badge ${badgeClass}" aria-label="${badgeText} template">${badgeText}</span>
+    <div class="tpl-visual ${visualClass}" aria-hidden="true">${visualInner}</div>
+    <div class="tpl-body">
+      <div class="tpl-category">${t.category}</div>
+      <h3>${t.title}</h3>
+      <p>${t.description}</p>
+      <div class="tpl-meta">
+        <span class="tpl-format">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          ${t.format} · ${t.pages}
+        </span>
+        ${priceDisplay}
+      </div>
+      <div class="tpl-actions">
+        <button class="btn btn-gold tpl-preview-btn" data-id="${t.id}" aria-haspopup="dialog">
+          ${btnLabel} <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderCards(filter) {
+  const grid  = document.getElementById("templatesGrid");
+  const empty = document.getElementById("templatesEmpty");
+  const existing = grid.querySelectorAll(".tpl-card");
+  existing.forEach(c => c.remove());
+
+  const visible = filter === "all" ? TEMPLATES : TEMPLATES.filter(t => t.tier === filter);
+
+  if (visible.length === 0) {
+    empty.style.display = "block";
+  } else {
+    empty.style.display = "none";
+    visible.forEach(t => {
+      const div = document.createElement("div");
+      div.innerHTML = buildCardHTML(t).trim();
+      grid.insertBefore(div.firstChild, empty);
+    });
+  }
+
+  // Update counts
+  document.getElementById("count-all").textContent     = TEMPLATES.length;
+  document.getElementById("count-free").textContent    = TEMPLATES.filter(t => t.tier === "free").length;
+  document.getElementById("count-premium").textContent = TEMPLATES.filter(t => t.tier === "premium").length;
+
+  // Re-apply fade-up init for new cards
+  grid.querySelectorAll(".fade-up").forEach((el, i) => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(28px)";
+    el.style.transition = "opacity 0.6s cubic-bezier(0.4,0,0.2,1) " + (i * 70) + "ms, transform 0.6s cubic-bezier(0.4,0,0.2,1) " + (i * 70) + "ms";
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      el.style.opacity = "1";
+      el.style.transform = "translateY(0)";
+    }));
+  });
+}
+
+/* ── Filter button logic ─────────────────────────────────── */
+document.querySelectorAll(".filter-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".filter-btn").forEach(b => {
+      b.classList.remove("active");
+      b.setAttribute("aria-selected", "false");
+    });
+    btn.classList.add("active");
+    btn.setAttribute("aria-selected", "true");
+    renderCards(btn.dataset.filter);
+  });
+});
+
+/* ── Modal logic ─────────────────────────────────────────── */
+const modal        = document.getElementById("tplModal");
+const modalClose   = document.getElementById("modalClose");
+const modalBackdrop= document.getElementById("modalBackdrop");
+let lastFocus      = null;
+
+function openModal(id) {
+  const t = TEMPLATES.find(x => x.id === id);
+  if (!t) return;
+  lastFocus = document.activeElement;
+
+  const isFree = t.tier === "free";
+  const visualClass = VISUAL_CLASSES[t.visual] || "tpl-visual-cv";
+  const visualInner = VISUAL_HTML[t.visual]   || VISUAL_HTML.cv;
+
+  document.getElementById("modalVisual").className = "modal-visual " + visualClass;
+  document.getElementById("modalVisual").innerHTML = visualInner;
+  document.getElementById("modalTier").textContent  = isFree ? "FREE RESOURCE" : "PREMIUM TEMPLATE";
+  document.getElementById("modalTier").className    = "modal-tier " + (isFree ? "free" : "premium");
+  document.getElementById("modalTitle").textContent = t.title;
+  document.getElementById("modalDesc").textContent  = t.longDesc || t.description;
+
+  document.getElementById("modalDetails").innerHTML = `
+    <div class="modal-detail"><label>FORMAT</label><span>${t.format}</span></div>
+    <div class="modal-detail"><label>LENGTH</label><span>${t.pages}</span></div>
+  `;
+
+  if (isFree) {
+    document.getElementById("modalPrice").className = "modal-price free";
+    document.getElementById("modalPrice").textContent = "Free";
+    document.getElementById("modalPriceNote").textContent = "No sign-up required. Download directly.";
+    const hasFile = t.file && t.file.trim() !== "";
+    document.getElementById("modalActions").innerHTML = hasFile
+      ? `<a href="${t.file}" download class="btn btn-gold">Download now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>`
+      : `<span class="btn btn-gold" style="opacity:.55;cursor:default;">Coming soon</span>`;
+    document.getElementById("modalNote").textContent = "Free templates are provided as editable files for personal, non-commercial use.";
+  } else {
+    document.getElementById("modalPrice").className = "modal-price";
+    document.getElementById("modalPrice").textContent = t.price;
+    document.getElementById("modalPriceNote").textContent = "One-time purchase · Delivered by email within 24 hours";
+    const subject = encodeURIComponent("Template Purchase: " + t.title);
+    const body    = encodeURIComponent("Hello,\n\nI would like to purchase the following template:\n\nTemplate: " + t.title + "\nPrice: " + t.price + "\n\nPlease send payment instructions.\n\nThank you.");
+    document.getElementById("modalActions").innerHTML =
+      `<a href="mailto:mjglobalcareers@gmail.com?subject=${subject}&body=${body}" class="btn btn-gold">Purchase — ${t.price} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+       <a href="contact.html" class="btn btn-outline">Ask a question</a>`;
+    document.getElementById("modalNote").textContent = "Payment instructions will be sent by email. The template file is delivered once payment is confirmed.";
+  }
+
+  modal.classList.add("open");
+  document.body.style.overflow = "hidden";
+  setTimeout(() => modalClose.focus(), 50);
+}
+
+function closeModal() {
+  modal.classList.remove("open");
+  document.body.style.overflow = "";
+  if (lastFocus) lastFocus.focus();
+}
+
+modalClose.addEventListener("click", closeModal);
+modalBackdrop.addEventListener("click", closeModal);
+document.addEventListener("keydown", e => { if (e.key === "Escape" && modal.classList.contains("open")) closeModal(); });
+
+// Delegate preview button clicks on the grid
+document.getElementById("templatesGrid").addEventListener("click", e => {
+  const btn = e.target.closest(".tpl-preview-btn");
+  if (btn) openModal(btn.dataset.id);
+});
+
+/* ── Hover lift ──────────────────────────────────────────── */
+document.getElementById("templatesGrid").addEventListener("mouseover", e => {
+  const card = e.target.closest(".tpl-card");
+  if (card) { card.style.transform = "translateY(-5px)"; card.style.boxShadow = "0 16px 48px rgba(16,29,49,.10)"; }
+});
+document.getElementById("templatesGrid").addEventListener("mouseout", e => {
+  const card = e.target.closest(".tpl-card");
+  if (card) { card.style.transform = ""; card.style.boxShadow = ""; }
+});
+
+/* ── Back to top ─────────────────────────────────────────── */
+document.querySelectorAll("[data-back-top]").forEach(btn =>
+  btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }))
+);
+
+/* ── Sticky header shadow ────────────────────────────────── */
+const header = document.querySelector(".site-header");
+window.addEventListener("scroll", () => header.classList.toggle("scrolled", scrollY > 10), { passive: true });
+
+/* ── Mobile nav ──────────────────────────────────────────── */
+const toggle = document.querySelector(".menu-toggle");
+const nav    = document.querySelector(".main-nav");
+if (toggle && nav) {
+  toggle.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open);
+  });
+  document.addEventListener("click", e => {
+    if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+  });
+}
+
+/* ── Active nav ──────────────────────────────────────────── */
+const page = location.pathname.split("/").pop() || "index.html";
+document.querySelectorAll(".main-nav a").forEach(a => {
+  if (a.getAttribute("href").split("/").pop() === page) {
+    a.classList.add("nav-active");
+    a.setAttribute("aria-current", "page");
+  }
+});
+
+/* ── Page transition overlay ─────────────────────────────── */
+const overlay = document.createElement("div");
+overlay.id = "page-overlay";
+Object.assign(overlay.style, { position:"fixed",inset:"0",background:"#101d31",zIndex:"9999",pointerEvents:"none",opacity:"1",transition:"opacity 0.55s cubic-bezier(0.4,0,0.2,1)" });
+document.documentElement.appendChild(overlay);
+window.addEventListener("load", () => requestAnimationFrame(() => { overlay.style.opacity = "0"; setTimeout(() => overlay.style.display = "none", 600); }));
+document.addEventListener("click", e => {
+  const link = e.target.closest("a[href]");
+  if (!link) return;
+  const href = link.getAttribute("href");
+  if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("http") || link.target === "_blank") return;
+  e.preventDefault();
+  overlay.style.display = "block";
+  requestAnimationFrame(() => overlay.style.opacity = "1");
+  setTimeout(() => location.href = href, 480);
+});
+
+/* ── Init ────────────────────────────────────────────────── */
+renderCards("all");
+</script>
+</body>
+</html>
